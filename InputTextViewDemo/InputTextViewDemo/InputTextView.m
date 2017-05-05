@@ -232,7 +232,7 @@
     [attributedString addAttributes:self.typingAttributes range:(NSRange){0, [attributedString length]}];
     [string insertAttributedString:attributedString atIndex:index];
     
-    NSAttributedString *returnString = [[NSAttributedString alloc] initWithString:@"\n"];
+    NSAttributedString *returnString = [[NSAttributedString alloc] initWithString:@"\n" attributes:self.typingAttributes];
     
     [string insertAttributedString:returnString atIndex:index + 1];
     
