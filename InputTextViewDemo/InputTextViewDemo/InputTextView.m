@@ -43,7 +43,7 @@
 
 - (CGRect)attachmentBoundsForTextContainer:(NSTextContainer *)textContainer proposedLineFragment:(CGRect)lineFrag glyphPosition:(CGPoint)position characterIndex:(NSUInteger)charIndex {
     CGFloat scale  = self.info.image.size.width / self.info.image.size.height;
-    return CGRectMake(0, 0, (lineFrag.size.width - 10), (lineFrag.size.width - 10) / scale);
+    return CGRectMake(0, 0, (lineFrag.size.width - textContainer.lineFragmentPadding * 2), (lineFrag.size.width - textContainer.lineFragmentPadding * 2) / scale);
 }
 
 
@@ -219,7 +219,7 @@
     
     self.placeHolderLabel.hidden = YES;
     
-    DYMAttachment *attachment = [[DYMAttachment alloc] initWithAttachmentInfo:attachmentInfo maxWidth:self.frame.size.width - self.textContainerInset.left - self.textContainerInset.right];
+    DYMAttachment *attachment = [[DYMAttachment alloc] initWithAttachmentInfo:attachmentInfo maxWidth:self.frame.size.width];
     [self.attachmentArray addObject:attachmentInfo];
     
     UITextRange *selRange = self.selectedTextRange;
